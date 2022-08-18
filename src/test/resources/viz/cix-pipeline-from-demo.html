@@ -1,0 +1,428 @@
+<html>
+       <head>
+    <title>Junction Workflow for github:afalko-demo2:test:main:1234567:1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .topnav {
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        .topnav a:hover {
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .topnav .login-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+            width:120px;
+        }
+
+        .topnav .login-container button {
+            float: right;
+            padding: 6px 10px;
+            background-color: #555;
+            color: white;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .login-container button:hover {
+            background-color: green;
+        }
+
+        .logo {
+            float: left;
+            padding-right: 2px;
+        }
+        .login-container a {
+            display: block;
+            color: #2196F3;
+            text-align: center;
+            padding: 5px 16px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Logo-3 */
+        .logo-3 {
+            float: left;
+            text-align: center;
+        }
+
+        .logo-3 h3 {
+            color: #016201;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height:1.3;
+            /*padding: 2px;*/
+            /*padding-top: 10px;*/
+        }
+        .logo-3 p {
+            font-size: 10px;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            background: #34495e;
+            font-weight: 400;
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        /*Manju Changes*/
+        .c-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #2596be;
+        }
+
+        .c-menu li {
+            float: left;
+        }
+
+        .c-menu li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .c-menu li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .c-menu .active {
+            background-color: #e28743;
+        }
+
+        .c-menu .login-container {
+            float: right;
+        }
+
+        .dataTable table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        .dataTable th {
+            background-color: #cce7e8;
+        }
+
+        .dataTable td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .dataTable tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        .dataTable {
+            padding: 10px;
+        }
+
+        .cssLogo {
+            margin-left: 5px;
+        }
+        .cssLogo div {
+            display:inline-block;
+            font-size:50px;
+        }
+        .duetText {
+            margin-left:40px;
+            /* purple/Violet */
+            color:#28275b;
+        }
+        .healthText {
+            /* Green Color again */
+            color:#00b971;
+        }
+        .patientImage {
+            border-radius:50%;
+            margin-bottom:15px;
+            position:absolute;
+            height:17px;
+            width:17px;
+        }
+        .greenBody {
+            /*Green color*/
+            background-color:#00b971;
+            border:2px solid white;
+            z-index:200;
+        }
+        .violetBody {
+            margin-top:2px;
+            margin-left:13px;
+            z-index:-200;
+            /*Violet blue like color*/
+            background-color:#28275b;
+
+        }
+        .upperSection {
+            border-radius:50%;
+            height:18px;
+            width:18px;
+            margin-top:-18px;
+            position:absolute;
+        }
+        .firstPart {
+            margin-left:-5px;
+            background-color:#00b971;
+        }
+        .middlePart {
+            margin-left:10px;
+            background-color:#00b971;
+            height:18px;
+            width:11px;
+            border-radius: 12px 6px 0 12px;
+        }
+        .lastPart {
+            height:18px;
+            width:11px;
+            border-radius: 0 11px 11px 6px;
+            margin-left:24px;
+            background-color:#28275b;
+        }
+        .PlusSignHorizontalBar {
+            position:absolute;
+            width:16px;
+            height:3px;
+            margin-top:-10px;
+            margin-left:14px;
+            background-color:white;
+        }
+        .plusSign {
+            margin-top:40px;
+        }
+        .horizontalGreenFiller {
+            position:absolute;
+            height:5px;
+            width:10px;
+            margin-top:-5px;
+            margin-left:5px;
+            z-index:200;
+            /* Green color again */
+            /* Bar which connects two circle and eliminates weird gap between   two */
+            background-color:#00b971;
+        }
+
+        .dataTable a:link{
+            text-decoration: none;
+            color:#134896;
+        }
+        .dataTable a:hover{
+            text-decoration: none;
+            color:#942A5F;
+        }
+    </style>
+</head>
+       <body>
+         <!-- TODO: Show summary table for last x workflows with links to those results -->
+
+         <div class="cssLogo">
+    <div class='patientImage greenBody'></div>
+    <div class='patientImage violetBody'></div>
+    <div class='duetText'>Junction</div>
+    <div class='healthText'>Workflow</div>
+</div>
+
+<div class="c-menu">
+    <ul>
+        <li class="nav-item dropdown">
+            <a class="active" href="/"> Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="/metrics"> Metrics</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#"> About</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#"> Help</a>
+        </li>
+    </ul>
+</div>
+         <div class="detailsPage">
+           <p>
+             <svg width="610px" height="500px"
+ viewBox="0.00 0.00 582.11 476.96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.0 1.0) rotate(0.0) translate(4.0 472.96)">
+<title>test &#45; main</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-472.96 578.11,-472.96 578.11,4 -4,4"/>
+<!-- test comment -->
+<g id="node1" class="node">
+<title></title>
+<g id="a_node1"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:">
+<polygon fill="none" stroke="blue" points="175.05,-468.96 121.05,-468.96 121.05,-432.96 175.05,-432.96 175.05,-468.96"/>
+</a>
+</g>
+</g>
+<!--  -->
+<g id="node2" class="node">
+<title></title>
+<g id="a_node2"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:2:2" xlink:title="Not Started\n2">
+<ellipse fill="none" stroke="grey" cx="148.05" cy="-370.09" rx="65.11" ry="26.74"/>
+<text text-anchor="middle" x="148.05" y="-373.89" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="148.05" y="-358.89" font-family="Comic Sans" font-size="14.00">2</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge1" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M148.05,-432.85C148.05,-425.36 148.05,-416.27 148.05,-407.39"/>
+<polygon fill="black" stroke="black" points="151.55,-407.17 148.05,-397.17 144.55,-407.17 151.55,-407.17"/>
+</g>
+<!--  -->
+<g id="node3" class="node">
+<title></title>
+<g id="a_node3"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:1" xlink:title="Not Started\n1">
+<polygon fill="none" stroke="grey" points="194.05,-307.22 102.05,-307.22 102.05,-269.22 194.05,-269.22 194.05,-307.22"/>
+<text text-anchor="middle" x="148.05" y="-292.02" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="148.05" y="-277.02" font-family="Comic Sans" font-size="14.00">1</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge2" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M148.05,-342.94C148.05,-334.75 148.05,-325.68 148.05,-317.36"/>
+<polygon fill="black" stroke="black" points="151.55,-317.34 148.05,-307.34 144.55,-317.34 151.55,-317.34"/>
+</g>
+<!--  -->
+<g id="node4" class="node">
+<title></title>
+<g id="a_node4"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:1-1:1-1" xlink:title="Not Started\n1&#45;1">
+<ellipse fill="none" stroke="grey" cx="74.05" cy="-206.35" rx="65.11" ry="26.74"/>
+<text text-anchor="middle" x="74.05" y="-210.15" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="74.05" y="-195.15" font-family="Comic Sans" font-size="14.00">1&#45;1</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge3" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M131.26,-269.1C123.11,-260.29 113.06,-249.45 103.68,-239.32"/>
+<polygon fill="black" stroke="black" points="106.03,-236.72 96.67,-231.76 100.9,-241.48 106.03,-236.72"/>
+</g>
+<!--  -->
+<g id="node7" class="node">
+<title></title>
+<g id="a_node7"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:3" xlink:title="Not Started\n3">
+<polygon fill="none" stroke="grey" points="333.05,-225.35 241.05,-225.35 241.05,-187.35 333.05,-187.35 333.05,-225.35"/>
+<text text-anchor="middle" x="287.05" y="-210.15" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="287.05" y="-195.15" font-family="Comic Sans" font-size="14.00">3</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge4" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M179.6,-269.1C199.5,-257.66 225.4,-242.78 246.78,-230.49"/>
+<polygon fill="black" stroke="black" points="248.71,-233.42 255.64,-225.4 245.22,-227.35 248.71,-233.42"/>
+</g>
+<!--  -->
+<g id="node5" class="node">
+<title></title>
+<g id="a_node5"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:1-2:1-2" xlink:title="Not Started\n1&#45;2">
+<ellipse fill="none" stroke="grey" cx="65.05" cy="-116.61" rx="65.11" ry="26.74"/>
+<text text-anchor="middle" x="65.05" y="-120.41" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="65.05" y="-105.41" font-family="Comic Sans" font-size="14.00">1&#45;2</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge5" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M71.4,-179.5C70.58,-171.45 69.65,-162.42 68.77,-153.8"/>
+<polygon fill="black" stroke="black" points="72.22,-153.17 67.72,-143.58 65.26,-153.88 72.22,-153.17"/>
+</g>
+<!--  -->
+<g id="node6" class="node">
+<title></title>
+<g id="a_node6"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:1-3:1-3" xlink:title="Not Started\n1&#45;3">
+<ellipse fill="none" stroke="grey" cx="65.05" cy="-26.87" rx="65.11" ry="26.74"/>
+<text text-anchor="middle" x="65.05" y="-30.67" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="65.05" y="-15.67" font-family="Comic Sans" font-size="14.00">1&#45;3</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge6" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M65.05,-89.29C65.05,-81.32 65.05,-72.43 65.05,-63.94"/>
+<polygon fill="black" stroke="black" points="68.55,-63.87 65.05,-53.87 61.55,-63.87 68.55,-63.87"/>
+</g>
+<!--  -->
+<g id="node8" class="node">
+<title></title>
+<g id="a_node8"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:3-1:3-1" xlink:title="Not Started\n3&#45;1">
+<ellipse fill="none" stroke="grey" cx="213.05" cy="-116.61" rx="65.11" ry="26.74"/>
+<text text-anchor="middle" x="213.05" y="-120.41" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="213.05" y="-105.41" font-family="Comic Sans" font-size="14.00">3&#45;1</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge7" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M271.72,-187.17C262.76,-176.55 251.18,-162.82 240.69,-150.37"/>
+<polygon fill="black" stroke="black" points="243.1,-147.81 233.98,-142.42 237.75,-152.32 243.1,-147.81"/>
+</g>
+<!--  -->
+<g id="node9" class="node">
+<title></title>
+<g id="a_node9"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:3-2:3-2" xlink:title="Not Started\n3&#45;2">
+<ellipse fill="none" stroke="grey" cx="361.05" cy="-116.61" rx="65.11" ry="26.74"/>
+<text text-anchor="middle" x="361.05" y="-120.41" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="361.05" y="-105.41" font-family="Comic Sans" font-size="14.00">3&#45;2</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge8" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M302.39,-187.17C311.35,-176.55 322.92,-162.82 333.42,-150.37"/>
+<polygon fill="black" stroke="black" points="336.36,-152.32 340.13,-142.42 331.01,-147.81 336.36,-152.32"/>
+</g>
+<!--  -->
+<g id="node10" class="node">
+<title></title>
+<g id="a_node10"><a xlink:href="step-log?key=github:afalko-demo2:test:main:1234567:1:3-3:3-3" xlink:title="Not Started\n3&#45;3">
+<ellipse fill="none" stroke="grey" cx="509.05" cy="-116.61" rx="65.11" ry="26.74"/>
+<text text-anchor="middle" x="509.05" y="-120.41" font-family="Comic Sans" font-size="14.00">Not Started</text>
+<text text-anchor="middle" x="509.05" y="-105.41" font-family="Comic Sans" font-size="14.00">3&#45;3</text>
+</a>
+</g>
+</g>
+<!-- &#45;&gt; -->
+<g id="edge9" class="edge">
+<title>&#45;&gt;</title>
+<path fill="none" stroke="black" d="M332.78,-187.28C367.74,-173.46 416.09,-154.35 453.31,-139.64"/>
+<polygon fill="black" stroke="black" points="454.99,-142.74 463,-135.81 452.42,-136.23 454.99,-142.74"/>
+</g>
+</g>
+</svg>
+
+           </p>
+           <p>
+             Waiting for logs...
+           </p>
+         </div>
+       </body>
+</html>

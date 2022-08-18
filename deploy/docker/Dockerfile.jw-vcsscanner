@@ -1,0 +1,4 @@
+FROM jw-base
+
+ENTRYPOINT ["tini", "--", "/opt/bin/run-service.sh", "com.salesforce.jw.steps.producer.VCSScanner"]
+

@@ -1,0 +1,14 @@
+pipeline:
+  - step:
+      name: test
+      image: alpine:3.9
+      commands:
+        - echo 'howdy diddley dee world'
+  - steps:
+      name: nest
+      pipeline:
+        - step:
+            name: nested-test
+            image: alpine:3.10
+            commands:
+              - echo 'hi world'

@@ -1,0 +1,6 @@
+FROM jw-base
+
+RUN which dot || apt-get update && apt-get install -y graphviz && rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["tini", "--", "/opt/bin/run-service.sh", "com.salesforce.jw.steps.consumer.viz.GraphvizVisualizer"]
+

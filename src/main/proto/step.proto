@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+option java_package = "com.salesforce.jw.steps";
+option java_outer_classname = "WorkflowProtos";
+
+message Step {
+  enum State {
+    NOT_STARTED = 0;
+    RUNNING = 1;
+    COMPLETED = 2;
+    TIMED_OUT = 3;
+    ERRORED = 4;
+    PAUSED = 5;
+    SKIPPED = 6;
+  }
+  // TODO: Name, state, and uuid need to be required
+  State state = 1;
+  string name = 2;
+  string error_msg = 3;
+  int64 timestamp_start = 4;
+  int64 timestamp_end = 5;
+  int32 try_count = 6;
+  string uuid = 7;
+
+  // TODO: See comment below - this is a placeholder idea for now
+  message Group {
+    repeated Group groups = 1;
+    repeated Step step = 2;
+    bool parallel = 4;
+  }
+}
+
+/**
+ TODO: We need to get rid of Steps and move these to Step.
+  We likely need step groups ordered amidst steps in nested groups.
+  If we add an "bool step_group" into Step we should be able to fix this up.
+  Better yet, we can rename Steps -> Group, then add this as a repeated in Step.
+ */
+message Steps {
+  repeated Steps steps = 1;
+  repeated Step step = 2;
+  string name = 3;
+  bool parallel = 4;
+  string uuid = 5;
+}
+
+message Workflow {
+  enum Type {
+    UNKNOWN = 0;
+    CIX = 1;
+    TEKTON_PIPELINE = 2;
+    JENKINSFILE = 3; // TODO: Add support for this
+  }
+
+  repeated Steps steps = 1;
+  string vcs = 2;
+  string organization = 3;
+  string project = 4;
+  string branch = 5;
+  string uuid = 6; // AKA sha
+  Type type = 7;
+}

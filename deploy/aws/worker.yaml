@@ -1,0 +1,2 @@
+# Due to workers currently tied to CIX, which needs to access to a Docker daemon, we run them on their own unique
+# EC2 autoscale group. The workers will call back into K8s to manage ephermeral JenkinsX installations as necessary

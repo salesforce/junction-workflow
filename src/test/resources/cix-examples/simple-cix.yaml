@@ -1,0 +1,6 @@
+pipeline:
+  - step:
+      name: test
+      image: alpine:3.9
+      commands:
+        - echo 'howdy diddley dee world'

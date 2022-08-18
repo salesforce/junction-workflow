@@ -1,0 +1,22 @@
+/*
+ *
+ *  * Copyright (c) 2022, salesforce.com, inc.
+ *  * All rights reserved.
+ *  * Licensed under the BSD 3-Clause license.
+ *  * For full license text, see LICENSE.txt file in the repo root or
+ *  * https://opensource.org/licenses/BSD-3-Clause
+ *
+ */
+
+package com.salesforce.jw.parsers.tekton;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record Tasks(String name, TaskSpec taskSpec) {
+    @JsonCreator
+    public Tasks(@JsonProperty String name, @JsonProperty TaskSpec taskSpec) {
+        this.name = name;
+        this.taskSpec = taskSpec;
+    }
+}

@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: pipename123
+spec:
+  tasks:
+    - name: ping
+      taskSpec:
+        steps:
+          - name: ping-and-sleep
+            image: alpine:3.9
+            script: echo 'ping from alpine' && date && sleep 10 && date
+          - name: sequential-test
+            image: alpine:latest
+            script: echo 'twidding thumbs' && date
+    - name: pong
+      taskSpec:
+        steps:
+          - name: pong-and-sleep
+            image: alpine:3.9
+            script: sleep 1 && echo 'pong from alpine' && sleep 15

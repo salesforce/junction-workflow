@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vcsscanner-service
+spec:
+  selector:
+    app.kubernetes.io/name: vcsscanner
+  ports:
+    - name: vcsscanner-port
+      protocol: TCP
+      port: 80
+      targetPort: vcsscanner-http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcsscanner-deployment
+  labels:
+    app: vcsscanner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcsscanner
+  template:
+    metadata:
+      labels:
+        app: vcsscanner
+    spec:
+      containers:
+        - name: vcsscanner
+          image: 232194414411.dkr.ecr.us-west-2.amazonaws.com/jw-vcsscanner:latest
+          ports:
+            # TODO: pass through config
+            - containerPort: 8889
+              name: vcsscanner-http
+          env:
+            - name: JW_GH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: jw-gh-token
+                  key: JW_GH_TOKEN
+            - name: bootstrap.servers
+              valueFrom:
+                configMapKeyRef:
+                  name: jw-config
+                  key: bootstrap.servers
+            - name: security.protocol
+              valueFrom:
+                configMapKeyRef:
+                  name: jw-config
+                  key: security.protocol
+            - name: JW_GH_ORGS
+              valueFrom:
+                configMapKeyRef:
+                  name: jw-config
+                  key: JW_GH_ORGS

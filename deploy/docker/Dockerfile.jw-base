@@ -1,0 +1,18 @@
+FROM gradle:7.4.2-jdk17-focal as compiled
+
+ADD gradle /tmp/jw/gradle
+ADD build.gradle.kts /tmp/jw/build.gradle.kts
+ADD settings.gradle.kts /tmp/jw/settings.gradle.kts
+ADD gradlew /tmp/jw/gradlew
+WORKDIR /tmp/jw
+
+ADD src /tmp/jw/src
+RUN gradle --gradle-user-home=/tmp/gradle build -x integrationTest --no-daemon
+
+FROM openjdk:17-slim-buster
+RUN which tini || apt-get update && apt-get install -y tini && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /opt/jw/
+ADD deploy/docker/run-service.sh /opt/bin/run-service.sh
+RUN chmod +x /opt/bin/run-service.sh
+COPY --from=compiled /tmp/jw/build/libs /opt/jw/
+COPY --from=compiled /tmp/jw/build/dependencies /opt/jw/

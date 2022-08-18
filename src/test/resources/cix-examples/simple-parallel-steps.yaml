@@ -1,0 +1,15 @@
+pipeline:
+  - steps:
+      name: nest
+      parallel: true
+      pipeline:
+        - step:
+            name: nested-test1
+            image: alpine:3.10
+            commands:
+              - echo 'hi world'
+        - step:
+            name: nested-test2
+            image: alpine:3.10
+            commands:
+              - echo 'hello world'

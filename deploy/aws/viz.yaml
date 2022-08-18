@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: viz-service
+spec:
+  selector:
+    app.kubernetes.io/name: viz
+  ports:
+    - name: viz-port
+      protocol: TCP
+      port: 80
+      targetPort: viz-http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: viz-deployment
+  labels:
+    app: viz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: viz
+  template:
+    metadata:
+      labels:
+        app: viz
+    spec:
+      containers:
+        - name: viz
+          image: 232194414411.dkr.ecr.us-west-2.amazonaws.com/jw-viz:latest
+          ports:
+            # TODO: pass through config
+            - containerPort: 8888
+              name: viz-http
+          env:
+            - name: bootstrap.servers
+              valueFrom:
+                configMapKeyRef:
+                  name: jw-config
+                  key: bootstrap.servers
+            - name: security.protocol
+              valueFrom:
+                configMapKeyRef:
+                  name: jw-config
+                  key: security.protocol
