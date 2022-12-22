@@ -40,7 +40,7 @@ dependencies {
     implementation("guru.nidi:graphviz-java:0.18.1")
     implementation("org.apache.kafka:kafka-clients:2.8.1")
     implementation("org.kohsuke:github-api:1.304")
-    implementation("io.kubernetes:client-java:14.0.1")
+    implementation("io.kubernetes:client-java:16.0.2")
     implementation("com.google.guava:guava:31.1-jre")
     implementation("org.quartz-scheduler:quartz:2.3.2")
     implementation("org.apache.logging.log4j:log4j-api:2.18.0")

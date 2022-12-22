@@ -283,7 +283,7 @@ public record TektonPipelineRunWorker(String key, WorkflowProtos.Workflow workfl
             createdNs = existingNs.get();
         } else {
             log.info("Creating namespace {}", namespaceForRun);
-            createdNs = api.createNamespace(namespaceForRun, null, null, null);
+            createdNs = api.createNamespace(namespaceForRun, null, null, null, null);
         }
         return createdNs;
     }
